@@ -79,8 +79,12 @@ Cada carpeta incluye `*.ipynb`, los `*.csv` usados y el enunciado `*.pdf`.
 ## Cómo ejecutarlo
 
 ```bash
-pip install pandas numpy scipy scikit-learn matplotlib seaborn jupyter
+git clone https://github.com/aldanasanchezasz/data-mining-tuia.git
+cd data-mining-tuia
+pip install -r requirements.txt
 jupyter notebook
 ```
 
-Los notebooks de TP2 y TP3 se escribieron en Google Colab: ajustá la ruta de lectura de los `.csv` (montaje de Drive) a la carpeta local.
+Abrí el notebook desde su propia carpeta: los `.csv` se leen con rutas relativas. En Google Colab alcanza con subir el notebook y sus CSV al panel de archivos.
+
+**TP3 y la GPU:** el notebook usa RAPIDS cuML si está instalado (como en Colab con GPU T4); si no, cae automáticamente a scikit-learn en CPU. Las salidas guardadas en el notebook corresponden a la ejecución en GPU. En CPU la búsqueda de hiperparámetros es mucho más lenta (el dataset tiene ~50.000 filas): una ejecución completa llevó más de 50 minutos sin terminar en una PC de escritorio.
