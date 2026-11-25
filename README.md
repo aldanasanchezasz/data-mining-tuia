@@ -27,7 +27,7 @@ Análisis de un dataset biométrico de pingüinos para descubrir su estructura l
 
 **Parte A, regresión:** predicción de `Profit` a partir del gasto de 1000 empresas.
 - EDA con detección de outliers, correlaciones de Pearson y Spearman, y descarte de una variable colineal.
-- `DecisionTreeRegressor` con búsqueda de hiperparámetros, particiones train/validación/prueba (70/15/15) y métricas MAE/MSE/R².
+- `DecisionTreeRegressor` con búsqueda de hiperparámetros, particiones train/validación/prueba (70/15/15, comparada con 80/20) y métricas MAE y MSE.
 
 **Parte B, clasificación:** predicción de la droga adecuada para cada paciente (200 registros, clases desbalanceadas).
 - **Árbol de decisión:** `GridSearchCV` con validación cruzada estratificada, pre-poda y post-poda por costo-complejidad (`ccp_alpha`).
@@ -56,7 +56,7 @@ Clasificación multiclase (22 cultivos) con 16 variables de suelo y clima, sobre
 | Regresión | Árbol de decisión |
 | Clasificación | Árbol de decisión (con poda), Naive Bayes (Gaussiano y Categórico), k-NN, SVM (lineal y RBF), Random Forest |
 | Validación y selección | Hold-out train/val/test, K-Fold estratificado, `GridSearchCV`, Silhouette, GAP statistic |
-| Métricas | Accuracy, precisión/recall/F1 macro, MAE, MSE, R², matriz de confusión |
+| Métricas | Accuracy, precisión/recall/F1 macro, MAE, MSE, matriz de confusión |
 
 ## Tecnologías
 
