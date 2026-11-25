@@ -43,7 +43,7 @@ Clasificación multiclase (22 cultivos) con 16 variables de suelo y clima, sobre
 - **Modelos:** SVM lineal, SVM con kernel RBF y Random Forest, con búsqueda en grilla de `C`, `gamma`, `n_estimators` y `max_depth` mediante validación cruzada estratificada.
 - **Resultados (accuracy en test):** SVM lineal ≈ 0,61 · SVM RBF ≈ 0,88 · **Random Forest ≈ 0,91**.
 - **Interpretación:** importancia de variables (las climáticas dominan) y matrices de confusión normalizadas por clase.
-- **GPU:** los modelos se entrenaron con **RAPIDS cuML** en una GPU T4 de Google Colab. El mismo código funciona con scikit-learn en CPU, más lento.
+- **GPU:** los modelos se entrenaron con **RAPIDS cuML** en una GPU T4 de Google Colab. Con scikit-learn en CPU es posible, pero mucho más lento.
 
 ---
 
@@ -87,4 +87,4 @@ jupyter notebook
 
 Abrí el notebook desde su propia carpeta: los `.csv` se leen con rutas relativas. En Google Colab alcanza con subir el notebook y sus CSV al panel de archivos.
 
-**TP3 y la GPU:** el notebook usa RAPIDS cuML si está instalado (como en Colab con GPU T4); si no, cae automáticamente a scikit-learn en CPU. Las salidas guardadas en el notebook corresponden a la ejecución en GPU. En CPU la búsqueda de hiperparámetros es mucho más lenta (el dataset tiene ~50.000 filas): una ejecución completa llevó más de 50 minutos sin terminar en una PC de escritorio.
+**TP3 y la GPU:** el notebook está pensado para Google Colab con GPU T4 y usa **RAPIDS cuML** (`cuml.svm.SVC` y `cuml.ensemble.RandomForestClassifier`); las salidas guardadas corresponden a esa ejecución. En Colab, activá la GPU y ejecutá la celda de instalación de cuML. Para correrlo en CPU con scikit-learn, comentá en la celda de librerías los imports de `cuml` y descomentá el bloque "Alternativa con scikit-learn": la búsqueda de hiperparámetros será mucho más lenta (el dataset tiene ~50.000 filas).
